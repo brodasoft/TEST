@@ -1,28 +1,13 @@
-import tkinter as tk
-from tkinter import filedialog
+def save_to_file(content, file_path='example.txt'):
+    with open(file_path, 'w') as file:
+        file.write(content)
+    print("Text saved to '{}' successfully!".format(file_path))
 
-def save_to_file(content):
-    file_path = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=[("Text files", "*.txt"), ("All files", "*.*")])
-    if file_path:
-        with open(file_path, 'w') as file:
-            file.write(content)
-        tk.messagebox.showinfo("Success", "Text saved to file successfully!")
+if __name__ == "__main__":
+    user_input = input("Wprowadź tekst do zapisania do pliku: ")
+    custom_file_path = input("Podaj nazwę pliku (jeśli inna niż 'example.txt'): ")
 
-def get_text_input():
-    text_input = entry.get("1.0", "end-1c")  # Get text from the Text widget
-    save_to_file(text_input)
-
-# GUI setup
-root = tk.Tk()
-root.title("Text Saver")
-
-# Text Entry
-entry = tk.Text(root, height=10, width=40)
-entry.pack(pady=10)
-
-# Save Button
-save_button = tk.Button(root, text="Save Text to File", command=get_text_input)
-save_button.pack()
-
-# Run the GUI
-root.mainloop()
+    if custom_file_path:
+        save_to_file(user_input, custom_file_path)
+    else:
+        save_to_file(user_input)
