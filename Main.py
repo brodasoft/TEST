@@ -1,5 +1,6 @@
 
 import tkinter as tk
+import os
 from tkinter import messagebox
 
 def write_to_file(file_path, content, mode='w'):
@@ -31,7 +32,7 @@ def read_and_display_file(file_path):
 
 if __name__ == "__main__":
     # Example usage when the script is run as the main program
-    file_path = 'c:/Enron/_Prv/_Szkolenia/_Praktyka/REPO/TEST/data/example.txt'
+    file_path = os.path.join(os.path.dirname(__file__) , 'data/example.txt') 
 
     # Write to the file
     write_to_file(file_path, 'Hello, this is a sample text.\nWriting to a file in Python is easy!')
