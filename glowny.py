@@ -15,4 +15,3 @@ if __name__ == "__main__":
     # odczyt 
     read_and_display_file(file)
     
-    
