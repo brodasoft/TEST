@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple Game</title>
+	<style>
+		#game-container {
+			width: 400px;
+			height: 400px;
+			border: 1px solid black;
+			position: relative;
+		}
+
+		#player {
+			width: 50px;
+			height: 50px;
+			background-color: blue;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	</style>
+</head>
+<body>
+	<div id="game-container">
+		<div id="player"></div>
+	</div>
+
+	<script>
+		// Get the player element
+		var player = document.getElementById("player");
+
+		// Set initial player position
+		var playerX = 200;
+		var playerY = 200;
+
+		// Update player position based on arrow key input
+		document.addEventListener("keydown", function(event) {
+			if (event.key === "ArrowUp") {
+				playerY -= 10;
+			} else if (event.key === "ArrowDown") {
+				playerY += 10;
+			} else if (event.key === "ArrowLeft") {
+				playerX -= 10;
+			} else if (event.key === "ArrowRight") {
+				playerX += 10;
+			}
+
+			// Update player position
+			player.style.left = playerX + "px";
+			player.style.top = playerY + "px";
+		});
+	</script>
+</body>
+</html>
